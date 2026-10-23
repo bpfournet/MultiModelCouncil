@@ -1,0 +1,110 @@
+{
+  "testing": {
+    "name": "Testing Council",
+    "description": "Low-cost Council for testing real AI collaboration.",
+    "providers": {
+      "openai": {
+        "model": "gpt-6-luna",
+        "reasoning": {
+          "effort": "none"
+        },
+        "max_tokens": 32768
+      },
+      "anthropic": {
+        "model": "claude-haiku-5-5",
+        "output_config": {
+          "effort": "low"
+        },
+        "max_tokens": 32768
+      },
+      "google": {
+        "model": "gemini-3.1-flash-lite",
+        "thinking_config": {
+          "thinking_level": "MINIMAL"
+        },
+        "max_tokens": 32768
+      }
+    },
+    "execution": {
+      "request_seconds": 600,
+      "stage_seconds": 610,
+      "council_seconds": 1860,
+      "question_bytes": 4096,
+      "response_bytes": 262144,
+      "request_text_bytes": 5242880
+    }
+  },
+  "conversation": {
+    "name": "Conversation Council",
+    "description": "Balanced Council for everyday discussion and analysis.",
+    "providers": {
+      "openai": {
+        "model": "gpt-6.1-sol",
+        "reasoning": {
+          "effort": "medium"
+        },
+        "max_tokens": 65536
+      },
+      "anthropic": {
+        "model": "claude-sonnet-5-5",
+        "output_config": {
+          "effort": "medium"
+        },
+        "max_tokens": 65536,
+        "stream": true
+      },
+      "google": {
+        "model": "gemini-3.8-flash",
+        "thinking_config": {
+          "thinking_level": "MEDIUM"
+        },
+        "max_tokens": 65536
+      }
+    },
+    "execution": {
+      "request_seconds": 1800,
+      "stage_seconds": 1810,
+      "council_seconds": 5460,
+      "question_bytes": 4096,
+      "response_bytes": 524288,
+      "request_text_bytes": 10485760
+    }
+  },
+  "frontier": {
+    "name": "Frontier Council",
+    "description": "Highest-capability Council for complex research and reasoning.",
+    "providers": {
+      "openai": {
+        "model": "gpt-6-astra",
+        "reasoning": {
+          "effort": "max",
+          "mode": "pro"
+        },
+        "max_tokens": 128000
+      },
+      "anthropic": {
+        "model": "claude-fable-5-1",
+        "output_config": {
+          "effort": "max"
+        },
+        "max_tokens": 128000,
+        "stream": true
+      },
+      "google": {
+        "model": "gemini-4-argon",
+        "thinking_config": {
+          "thinking_level": "HIGH"
+        },
+        "max_tokens": 65536
+      }
+    },
+    "execution": {
+      "request_seconds": 3600,
+      "stage_seconds": 3610,
+      "council_seconds": 10860,
+      "question_bytes": 4096,
+      "response_bytes": 1024000,
+      "request_text_bytes": 20480000
+    }
+  }
+}
