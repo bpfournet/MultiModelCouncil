@@ -212,7 +212,8 @@ starts a backend.
 collection, durable selective recovery, authenticated application routes, actual
 served duplicate-POST transport code in a Node terminal harness, interruption,
 redaction, recorder failures and bounded storage/fragmentation checks. Tests use
-synthetic fixtures, including exact legacy-framing reconstruction and rejection\nchecks, and do not require historical archives or Git objects. They
+synthetic fixtures, including exact legacy-framing reconstruction and rejection
+checks, and do not require historical archives or Git objects. They
 exit **0** on success. Node 23.10.0 is the reference tool for the offline transport
 test; no npm packages or frontend build are required.
 
@@ -223,10 +224,17 @@ qualification remains deferred; a new assertion/error exits **1**. The provider
 self-test exits **0** on success. No live provider test is part of these commands.
 All fixture documents and archives are synthetic, created under tests/offline
 and removed afterward. The tests import this checkout's application, not another
-installation. frontier_recording.py additionally checks realistic Anthropic
-streaming refusals with/without details, transport interruption, missing terminal
-events, usage completeness, the HTTP-200 stream-error classification, and sibling
-completion during a failed Frontier revision. It uses installed adapters with
+installation. `frontier_recording.py` additionally checks HTTP-200 Anthropic
+refusals with zero reported output tokens, unexplained refusals with nonzero token
+usage but no ordinary text, transport interruption, missing terminal events and
+HTTP-200 stream errors. A substantial successful streamed revision checks exact
+ordinary-text bytes, provider identifiers, final usage and reported thinking-token
+counters while excluding hidden thinking and signatures. Tests read archives back
+from disk and reconstruct whole proposals, routed critiques, message order and
+original context identities without redispatch. A zero-token refusal is recorded
+while two independent revision siblings remain active; both subsequently finish,
+and the incomplete stage stays rejected. These are synthetic adapter-to-archive
+checks, not live refusal or billing qualification. They use installed adapters with
 mocked HTTP only:
 
 ~~~powershell
